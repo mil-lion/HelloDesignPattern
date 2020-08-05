@@ -19,7 +19,13 @@ public class ABank {
     public ABank() {
     }
 
-    public void getBalance() {
+    public long getAccountBalance() {
         System.out.println("ABank balance = " + balance);
+        return balance;
+    }
+    
+    public void setAccountBalance(long balance) {
+        this.balance = balance;
+        System.out.println("ABank new balance = " + this.balance);
     }
 }

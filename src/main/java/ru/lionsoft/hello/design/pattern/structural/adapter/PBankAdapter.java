@@ -16,12 +16,19 @@ public class PBankAdapter extends PBank {
 
     private final ABank delegate;
 
-    public PBankAdapter(ABank delegate) {
-        this.delegate = delegate;
+    public PBankAdapter() {
+        this.delegate = new ABank();
     }
 
     @Override
-    public void getBalance() {
-        delegate.getBalance();
+    public int getBalance() {
+        return (int) delegate.getAccountBalance();
     }
+
+    @Override
+    public void setBalance(int balance) {
+        delegate.setAccountBalance(balance);
+    }
+    
+    
 }

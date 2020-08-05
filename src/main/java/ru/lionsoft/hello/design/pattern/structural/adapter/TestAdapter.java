@@ -17,9 +17,20 @@ public class TestAdapter {
     public static void main(String[] args) {
 
         PBank pBank = new PBank();
-        pBank.getBalance();
+        printBalance(pBank);
 
-        PBank aBank = new PBankAdapter(new ABank());
-        aBank.getBalance();
+        PBank aBank = new PBankAdapter();
+        printBalance(aBank);
+        
+        incrementBalance(pBank, 500);
+        incrementBalance(aBank, 1000);
+    }
+    
+    public static void printBalance(PBank bank) {
+        System.out.println("balance = " + bank.getBalance());
+    }
+
+    public static void incrementBalance(PBank bank, int sum) {
+        bank.setBalance(bank.getBalance() + sum);
     }
 }

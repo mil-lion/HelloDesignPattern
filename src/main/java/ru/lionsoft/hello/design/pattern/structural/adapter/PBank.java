@@ -14,13 +14,18 @@ package ru.lionsoft.hello.design.pattern.structural.adapter;
  */
 public class PBank {
 
-    private long balance = 100;
+    private int balance = 100;
 
     public PBank() {
     }
 
-    public void getBalance() {
+    public int getBalance() {
         System.out.println("PBank balance = " + balance);
+        return balance;
     }
 
+    public void setBalance(int balance) {
+        this.balance = balance;
+        System.out.println("PBank new balance = " + this.balance);
+    }
 }
