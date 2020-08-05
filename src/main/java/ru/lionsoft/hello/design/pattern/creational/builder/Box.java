@@ -14,6 +14,68 @@ package ru.lionsoft.hello.design.pattern.creational.builder;
  */
 public class Box {
 
+    // ************** Properties *******************
+
+    private int width;
+
+    /**
+     * Get the value of width
+     *
+     * @return the value of width
+     */
+    public int getWidth() {
+        return width;
+    }
+
+    /**
+     * Set the value of width
+     *
+     * @param width new value of width
+     */
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    private int height;
+
+    /**
+     * Get the value of height
+     *
+     * @return the value of height
+     */
+    public int getHeight() {
+        return height;
+    }
+
+    /**
+     * Set the value of height
+     *
+     * @param height new value of height
+     */
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    private int length;
+
+    /**
+     * Get the value of length
+     *
+     * @return the value of length
+     */
+    public int getLength() {
+        return length;
+    }
+
+    /**
+     * Set the value of length
+     *
+     * @param length new value of length
+     */
+    public void setLength(int length) {
+        this.length = length;
+    }
+
     private String color;
 
     /**
@@ -34,18 +96,19 @@ public class Box {
         this.color = color;
     }
 
-    public int width;
-    public int height;
-    public int length;
+    // ************** Constructors *******************
 
     public Box() {
     }
 
-    public Box(int width, int height, int length) {
+    public Box(int width, int height, int length, String color) {
         this.width = width;
         this.height = height;
         this.length = length;
+        this.color = color;
     }
+
+    // ************** Cast to String *******************
 
     @Override
     public String toString() {
@@ -53,6 +116,7 @@ public class Box {
                 + "width=" + width 
                 + ", height=" + height 
                 + ", length=" + length 
+                + ", color=" + color 
                 + '}';
     }
 

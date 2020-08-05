@@ -19,10 +19,9 @@ public class TestBuilder {
         Car car = buld.buildCar();
         System.out.println("car = " + car);
 
-        StringBuilder sb = new StringBuilder();
-//        StringBuffer sbf = new StringBuffer();
-        String str = sb
-                .append("Hello")
+        // String Builder
+        String str = new StringBuilder()
+                .append("Hello") // add properties
                 .append(' ')
                 .insert(0, "Example: ")
                 .append("World")
@@ -31,8 +30,8 @@ public class TestBuilder {
                 ;
         System.out.println("str = " + str);
 
-        sb = new StringBuilder();
-        sb.append("Hello");
+        StringBuilder sb = new StringBuilder();
+        sb.append("Hello"); // add properties
         sb.append(' ');
         sb.insert(0, "Example: ");
         sb.append("World");
@@ -40,11 +39,12 @@ public class TestBuilder {
         str = sb.toString(); // build
         System.out.println("str = " + str);
 
+        // Box Builder
         Box b1 = new BoxBuilder()
-                .setWidth(1)
+                .setWidth(1) // set properties
                 .setHeight(2)
-//                .setLength(3)
-                .createBox();
+                .setLength(3)
+                .createBox(); // build
         System.out.println("b1 = " + b1);
     }
 }

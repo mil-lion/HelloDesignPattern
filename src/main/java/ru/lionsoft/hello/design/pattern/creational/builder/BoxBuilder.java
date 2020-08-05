@@ -10,13 +10,18 @@ package ru.lionsoft.hello.design.pattern.creational.builder;
 
 public class BoxBuilder {
 
+    // Свойства для постройки объекта (заявка)
     private int width = 1;
     private int height = 1;
     private int length = 1;
+    private String color = "Black";
 
-    public BoxBuilder() {
-    }
 
+    /**
+     * Задать ширину
+     * @param width
+     * @return 
+     */
     public BoxBuilder setWidth(int width) {
         this.width = width;
         return this;
@@ -32,8 +37,17 @@ public class BoxBuilder {
         return this;
     }
 
+    public BoxBuilder setColor(String color) {
+        this.color = color;
+        return this;
+    }
+
+    /**
+     * Построить объект
+     * @return 
+     */
     public Box createBox() {
-        return new Box(width, height, length);
+        return new Box(width, height, length, color);
     }
 
 }
