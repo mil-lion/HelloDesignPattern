@@ -9,16 +9,17 @@
 package ru.lionsoft.hello.design.pattern.creational.singleton;
 
 /**
- *
+ * Класс одиночка
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
 public class HelloSingleton {
 
     static {
-        System.out.println("HelloSingleton loaded!");
+        System.out.println("HelloSingleton class loaded!");
     }
 
     private HelloSingleton() {
+        System.out.println("HelloSingleton creaded!");
     }
 
     private final static HelloSingleton INSTANCE = new HelloSingleton();
@@ -31,7 +32,8 @@ public class HelloSingleton {
         return INSTANCE;
     }
 
-    // Business Method
+    // *************** Business Method **********************
+    
     public void hello() {
         System.out.println("Hello from Singleton class!");
     }

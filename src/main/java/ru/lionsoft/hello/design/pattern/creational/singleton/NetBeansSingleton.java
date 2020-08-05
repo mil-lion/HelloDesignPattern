@@ -9,7 +9,7 @@
 package ru.lionsoft.hello.design.pattern.creational.singleton;
 
 /**
- *
+ * Класс одиночка с ленивой загрузкой и потокобезопасный (шаблон NetBeans)
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
 public class NetBeansSingleton {
@@ -18,16 +18,13 @@ public class NetBeansSingleton {
     public static final double KURS_DOLLAR;
 
     static {
-        System.out.println("NetBeansSingleton loaded!");
+        System.out.println("NetBeansSingleton class loaded!");
         PI = 3.14159;
         KURS_DOLLAR = 35.5;
     }
 
     private NetBeansSingleton() {
-    }
-
-    public static NetBeansSingleton getInstance() {
-        return NetBeansSingletonHolder.INSTANCE;
+        System.out.println("NetBeansSingleton created!");
     }
 
     private static class NetBeansSingletonHolder {
@@ -39,11 +36,19 @@ public class NetBeansSingleton {
         private static final NetBeansSingleton INSTANCE = new NetBeansSingleton();
     }
 
-    public static void setUp() {
-        System.out.println("NetBeansSingleton.setUp()");
+    // Lazy and Thread Safe
+    public static NetBeansSingleton getInstance() {
+        return NetBeansSingletonHolder.INSTANCE;
     }
 
+    // *************** Business Method **********************
+    
     public void hello() {
         System.out.println("Helo from NetBeansSingleton class!");
     }
+
+    public static void startUp() {
+        System.out.println("NetBeansSingleton.startUp()");
+    }
+
 }
