@@ -1,5 +1,5 @@
 /*
- * File:    UsPorsheImpl.java
+ * File:    InterCarFactory.java
  * Project: HelloDesignPattern
  * Date:    14 дек. 2019 г. 00:18:56
  * Author:  Igor Morenko <morenko at lionsoft.ru>
@@ -9,14 +9,14 @@
 package ru.lionsoft.hello.design.pattern.creational.abstractFactory;
 
 /**
- *
+ * International Car Factory (Abstract Factory)
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
-public class UsPorsheImpl implements Porshe {
+public interface InterCarFactory {
 
-    @Override
-    public long getPorshePrice() {
-        return 2000;
-    }
+    Lada getLada();
 
+    Porshe getPorshe();
+
+    Ferrari getFerrari();
 }

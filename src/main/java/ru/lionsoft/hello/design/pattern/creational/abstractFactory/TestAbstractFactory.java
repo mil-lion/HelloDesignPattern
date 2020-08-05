@@ -8,6 +8,9 @@
  */
 package ru.lionsoft.hello.design.pattern.creational.abstractFactory;
 
+import ru.lionsoft.hello.design.pattern.creational.abstractFactory.ru.RuCarFactory;
+import ru.lionsoft.hello.design.pattern.creational.abstractFactory.us.UsCarFactory;
+
 /**
  *
  * @author Igor Morenko <morenko at lionsoft.ru>
@@ -15,22 +18,32 @@ package ru.lionsoft.hello.design.pattern.creational.abstractFactory;
 public class TestAbstractFactory {
 
     public static void main(String[] args) {
-        String country = "RU";
-        InterAbstractFactory iFactory = null;
+        String country = Math.random() < 0.5 ? "RU" : "US";
+        
+        // Abstract Factory
+        InterCarFactory carFactory = getCarFactory(country);
+
+        // Get Car
+        Lada lada = carFactory.getLada();
+        Porshe porshe = carFactory.getPorshe();
+        Ferrari ferrari = carFactory.getFerrari();
+
+        // Print
+        System.out.println("Country: " + country);
+        System.out.println("Lada Price: " + lada.getLadaPrice());
+        System.out.println("Porshe Price: " + porshe.getPorshePrice());
+        System.out.println("Ferrari Price: " + ferrari.getFerrariPrice());
+    }
+    
+    // Factory Method
+    public static InterCarFactory getCarFactory(String country) {
         switch (country) {
             case "US":
-                iFactory = new UsAbstractFactoryImpl();
-                break;
+                return new UsCarFactory();
             case "RU":
-                iFactory = new RuAbstractFactoryImpl();
-                break;
+                return new RuCarFactory();
             default:
-                throw new IllegalArgumentException("Unknoun country: " + country);
+                throw new IllegalArgumentException("Not found car factory into country: " + country);
         }
-        Lada lada = iFactory.getLada();
-        System.out.println("Lada Price: " + lada.getLadaPrice());
-
-        Ferrari ferrari = iFactory.getFerrari();
-        System.out.println("Ferrari Price: " + ferrari.getFerrariPrice());
     }
 }

@@ -1,22 +1,24 @@
 /*
- * File:    RuPorsheImpl.java
+ * File:    UsPorshe.java
  * Project: HelloDesignPattern
  * Date:    14 дек. 2019 г. 00:18:56
  * Author:  Igor Morenko <morenko at lionsoft.ru>
  * 
  * Copyright 2005-2019 LionSoft LLC. All rights reserved.
  */
-package ru.lionsoft.hello.design.pattern.creational.abstractFactory;
+package ru.lionsoft.hello.design.pattern.creational.abstractFactory.us;
+
+import ru.lionsoft.hello.design.pattern.creational.abstractFactory.Porshe;
 
 /**
- *
+ * Порше для американского рынка
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
-public class RuPorsheImpl implements Porshe {
+public class UsPorshe implements Porshe {
 
     @Override
     public long getPorshePrice() {
-        return 20000;
+        return 2000;
     }
 
 }
