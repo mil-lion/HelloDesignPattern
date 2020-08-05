@@ -23,11 +23,7 @@ public class BoxFactory {
     }
 
     public static Box createBox(int size) {
-        Box box = new Box();
-        box.width = size;
-        box.height = size;
-        box.length = size;
-        return box;
+        return createBox(size, size, size);
     }
 
     public static final char TYPE_SIZE_SMALL = 'S';

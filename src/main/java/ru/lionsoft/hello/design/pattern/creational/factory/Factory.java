@@ -14,23 +14,38 @@ package ru.lionsoft.hello.design.pattern.creational.factory;
  */
 public class Factory {
 
-    public OS getCurrentOS() {
-        return getCurrentOS(System.getProperty("user.os"));
+    private String defaultOS = "windows";
+
+    public Factory() {
+    }
+    
+    public Factory(String defaultOsName) {
+        this.defaultOS = defaultOsName;
+    }
+           
+    public OS getUserOS() {
+        return getOS(System.getProperty("user.os", defaultOS));
     }
 
-    public OS getCurrentOS(String osName) {
+    public OS getCurrentOS() {
+        return getOS(System.getProperty("os.name"));
+    }
+
+    public OS getOS(String osName) {
         if (osName == null) {
             throw new IllegalArgumentException("osName is null");
         }
         switch (osName) {
             case "windows":
+            case "Windows 7":
                 return new WindowsOS();
             case "linux":
                 return new LinuxOS();
             case "mac":
+            case "Mac OS X":
                 return new MacOS();
             default:
-                throw new IllegalArgumentException("osName = {windows, linux, mac}");//return null;
+                throw new IllegalArgumentException("osName = {windows, linux, mac}");
         }
     }
 }

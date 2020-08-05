@@ -8,6 +8,8 @@
  */
 package ru.lionsoft.hello.design.pattern.creational.factory;
 
+import java.util.Random;
+
 /**
  *
  * @author Igor Morenko <morenko at lionsoft.ru>
@@ -15,14 +17,18 @@ package ru.lionsoft.hello.design.pattern.creational.factory;
 public class TestFactory {
 
     public static void main(String[] args) {
+        String[] osNames = {"windows", "linux", "mac"};
+        
         Factory factory = new Factory();
-        OS os = factory.getCurrentOS("windows");
-        os.getOS();
-        os = factory.getCurrentOS("mac");
-        os.getOS();
+        
+        OS randomOS = factory.getOS(osNames[new Random().nextInt(osNames.length)]);
+        randomOS.useFunctionOS();
+        
+        OS userOS = factory.getUserOS();
+        userOS.useFunctionOS();
 
-        os = factory.getCurrentOS();
-        os.getOS();
+        OS currentOS = factory.getCurrentOS();
+        currentOS.useFunctionOS();
 
         Box b1 = BoxFactory.createBox(1, 2, 3);
         Box b2 = BoxFactory.createBox(10);

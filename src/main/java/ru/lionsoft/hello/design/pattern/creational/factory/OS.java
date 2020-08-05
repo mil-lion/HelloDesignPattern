@@ -14,5 +14,5 @@ package ru.lionsoft.hello.design.pattern.creational.factory;
  */
 public interface OS {
 
-    void getOS();
+    void useFunctionOS();
 }

@@ -15,7 +15,7 @@ package ru.lionsoft.hello.design.pattern.creational.factory;
 public class WindowsOS implements OS {
 
     @Override
-    public void getOS() {
+    public void useFunctionOS() {
         System.out.println("применить для Windows");
     }
 
