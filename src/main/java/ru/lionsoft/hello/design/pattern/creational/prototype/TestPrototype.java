@@ -26,10 +26,11 @@ public class TestPrototype {
         System.out.println("two.type: " + two.getType());
 
         Box b1 = new Box(1, 2, 3);
-        Box b2 = (Box) b1.clone();
+        Box b2 = b1.clone();
         System.out.println("b1 = " + b1);
         System.out.println("b2 = " + b2);
         System.out.println("b1.hash = " + Integer.toHexString(b1.hashCode()));
         System.out.println("b2.hash = " + Integer.toHexString(b2.hashCode()));
+        System.out.println("b1 == b2 => " + (b1 == b2));
     }
 }

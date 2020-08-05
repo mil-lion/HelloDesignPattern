@@ -39,8 +39,8 @@ public class Box implements Cloneable {
     }
     
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public Box clone() throws CloneNotSupportedException {
+        return (Box) super.clone();
     }
     
 }
