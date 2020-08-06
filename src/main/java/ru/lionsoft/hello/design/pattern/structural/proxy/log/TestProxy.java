@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
+ * Тест Посредников (Proxy)
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
 public class TestProxy {
