@@ -47,6 +47,10 @@ public class TestProxy {
                     }
                 });
         testBusiness(business3);
+
+        System.out.println("\n#### Dynamic Proxy Decorator ####");
+        Business business4 = DynamicProxyDecorator.newDynamicProxyDecorator(Business.class, business);
+        testBusiness(business4);
     }
 
     private static void testBusiness(Business business) {
