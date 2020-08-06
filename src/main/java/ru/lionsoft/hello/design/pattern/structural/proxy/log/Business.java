@@ -16,16 +16,16 @@ public interface Business {
 
     void method1();
 
-    void method2();
+    void method2(int x);
 
-    void method3();
+    void method3(String str);
 
-    void method4();
+    void method4(int x, String str);
 
     int func1(String s);
 
-    int func2(String s);
+    String func2(String s);
 
-    int func3(String s);
+    int func3(int x);
 
 }

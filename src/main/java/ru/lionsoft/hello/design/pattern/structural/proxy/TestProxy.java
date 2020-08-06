@@ -9,15 +9,21 @@
 package ru.lionsoft.hello.design.pattern.structural.proxy;
 
 /**
- *
+ * Тестирование Последника (Proxy)
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
 public class TestProxy {
 
     public static void main(String[] args) {
-        System.out.println("start");
-        Image image = new ProxyImage("test.jpg");
-        System.out.println("image created");
+        System.out.println("#### Start Test Real Image ####");
+        Image image = new RealImage("test.jpg");
+        System.out.println("@@@@ image created");
+        image.display();
+        image.display();
+
+        System.out.println("\n#### Start Test Proxy Image #####");
+        image = new ProxyLazyImage("lazy.jpg");
+        System.out.println("@@@@ image created");
         image.display();
         image.display();
     }

@@ -8,85 +8,101 @@
  */
 package ru.lionsoft.hello.design.pattern.structural.proxy.log;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
 public class BusinessProxy implements Business {
 
-    private final Business delegate;
+    private final Business delegate = new BusinessImpl();
 
-    public BusinessProxy(Business delegate) {
-        this.delegate = delegate;
+    // **************** Private *******************
+    
+    private String getTimestamp() {
+        return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss")
+                .format(new Date());
     }
-
+    
+    private void entering(String methodName) {
+        System.out.println(getTimestamp() + " Enetering into " + methodName);
+    }
+    
+    private void exiting(String methodName) {
+        System.out.println(getTimestamp() + " Exitting from " + methodName);
+    }
+    
+    // **************** Business Methods *******************
+    
     @Override
     public void method1() {
-        System.out.println("Entering method1()");
+        entering("method1()");
         try {
             delegate.method1();
         } finally {
-            System.out.println("Exiting method1()");
+            exiting("method1()");
         }
     }
 
     @Override
-    public void method2() {
-        System.out.println("Entering method2()");
+    public void method2(int x) {
+        entering("method2()");
         try {
-            delegate.method2();
+            delegate.method2(x);
         } finally {
-            System.out.println("Exiting method2()");
+            exiting("method2()");
         }
     }
 
     @Override
-    public void method3() {
-        System.out.println("Entering method3()");
+    public void method3(String str) {
+        entering("method3()");
         try {
-            delegate.method3();
+            delegate.method3(str);
         } finally {
-            System.out.println("Exiting method3()");
+            exiting("method3()");
         }
     }
 
     @Override
-    public void method4() {
-        System.out.println("Entering method4()");
+    public void method4(int x, String str) {
+        entering("method4()");
         try {
-            delegate.method4();
+            delegate.method4(x, str);
         } finally {
-            System.out.println("Exiting method4()");
+            exiting("method4()");
         }
     }
 
     @Override
     public int func1(String s) {
-        System.out.println("Entering func1()");
+        entering("func1()");
         try {
             return delegate.func1(s);
         } finally {
-            System.out.println("Exiting func1()");
+            exiting("func1()");
         }
     }
 
     @Override
-    public int func2(String s) {
-        System.out.println("Entering func2()");
+    public String func2(String s) {
+        entering("func2()");
         try {
             return delegate.func2(s);
         } finally {
-            System.out.println("Exiting func2()");
+            exiting("func2()");
         }
     }
 
     @Override
-    public int func3(String s) {
-        System.out.println("Entering func3()");
+    public int func3(int x) {
+        entering("func3()");
         try {
-            return delegate.func3(s);
+            return delegate.func3(x);
         } finally {
-            System.out.println("Exiting func3()");
+            exiting("func3()");
         }
     }
 

@@ -20,36 +20,36 @@ public class BusinessImpl implements Business {
     }
 
     @Override
-    public void method2() {
-        System.out.println("BusinessImpl.method2()");
+    public void method2(int x) {
+        System.out.println("BusinessImpl.method2(" + x + ")");
     }
 
     @Override
-    public void method3() {
-        System.out.println("BusinessImpl.method3()");
+    public void method3(String str) {
+        System.out.println("BusinessImpl.method3('"+ str + "')");
     }
 
     @Override
-    public void method4() {
-        System.out.println("BusinessImpl.method4()");
+    public void method4(int x, String str) {
+        System.out.println("BusinessImpl.method4(" + x + ",'" + str + "')");
     }
 
     @Override
     public int func1(String s) {
-        System.out.println("BusinessImpl.func1()");
-        return 1;
+        System.out.println("BusinessImpl.func1('" + s + "')");
+        return Integer.parseInt(s);
     }
 
     @Override
-    public int func2(String s) {
-        System.out.println("BusinessImpl.func2()");
-        return 2;
+    public String func2(String s) {
+        System.out.println("BusinessImpl.func2('" + s + "')");
+        return s.toUpperCase();
     }
 
     @Override
-    public int func3(String s) {
-        System.out.println("BusinessImpl.func3()");
-        return 3;
+    public int func3(int x) {
+        System.out.println("BusinessImpl.func3(" + x + ")");
+        return x + (int)(Math.random() * 200 - 100);
     }
 
 }
