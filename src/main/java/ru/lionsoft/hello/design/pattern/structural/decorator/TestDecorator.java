@@ -8,6 +8,11 @@
  */
 package ru.lionsoft.hello.design.pattern.structural.decorator;
 
+import ru.lionsoft.hello.design.pattern.structural.decorator.dynamic.BusinessImpl;
+import ru.lionsoft.hello.design.pattern.structural.decorator.dynamic.BusinessDecoratorImpl;
+import ru.lionsoft.hello.design.pattern.structural.decorator.dynamic.Business;
+import ru.lionsoft.hello.design.pattern.structural.decorator.dynamic.BusnisessDecoratorDynamic;
+
 /**
  *
  * @author Igor Morenko <morenko at lionsoft.ru>
@@ -35,34 +40,5 @@ public class TestDecorator {
         in.read();
          */
 
-        System.out.println("#### Static ####");
-        Business business = new BusinessDecoratorImpl(new BusinessImpl());
-        business.method1();
-        business.method2();
-        business.method3();
-        business.method4();
-        System.out.println(business.func1("S"));
-        System.out.println(business.func2("S"));
-        System.out.println(business.func3("S"));
-
-        System.out.println("#### Dynamic ####");
-        business = BusnisessDecoratorDynamic.createDecorator(new BusinessImpl());
-        business.method1();
-        business.method2();
-        business.method3();
-        business.method4();
-        System.out.println(business.func1("S"));
-        System.out.println(business.func2("S"));
-        System.out.println(business.func3("S"));
-
-//        System.out.println("#### Generic ####");
-//        business = GenericDecorator.createDecorator(Business.class, new BusinessImpl(), BusinessDecoratorAbstract.class);
-//        business.method1();
-//        business.method2();
-//        business.method3();
-//        business.method4();
-//        System.out.println(business.func1("S"));
-//        System.out.println(business.func2("S"));
-//        System.out.println(business.func3("S"));
     }
 }
