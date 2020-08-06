@@ -9,16 +9,12 @@
 package ru.lionsoft.hello.design.pattern.structural.adapter;
 
 /**
- *
+ * Адаптирует ABank к PBank
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
 public class PBankAdapter extends PBank {
 
-    private final ABank delegate;
-
-    public PBankAdapter() {
-        this.delegate = new ABank();
-    }
+    private final ABank delegate = new ABank();
 
     @Override
     public int getBalance() {
@@ -29,6 +25,5 @@ public class PBankAdapter extends PBank {
     public void setBalance(int balance) {
         delegate.setAccountBalance(balance);
     }
-    
-    
+        
 }
