@@ -8,13 +8,8 @@
  */
 package ru.lionsoft.hello.design.pattern.structural.decorator;
 
-import ru.lionsoft.hello.design.pattern.structural.decorator.dynamic.BusinessImpl;
-import ru.lionsoft.hello.design.pattern.structural.decorator.dynamic.BusinessDecoratorImpl;
-import ru.lionsoft.hello.design.pattern.structural.decorator.dynamic.Business;
-import ru.lionsoft.hello.design.pattern.structural.decorator.dynamic.BusnisessDecoratorDynamic;
-
 /**
- *
+ * Тестирование Декораторов (Decorator)
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
 public class TestDecorator {
