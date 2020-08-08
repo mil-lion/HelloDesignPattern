@@ -4,7 +4,7 @@
  * Date:    13 дек. 2019 г. 23:55:59
  * Author:  Igor Morenko <morenko at lionsoft.ru>
  * 
- * Copyright 2005-2019 LionSoft LLC. All rights reserved.
+ * Copyright 2005-2020 LionSoft LLC. All rights reserved.
  */
 package ru.lionsoft.hello.design.pattern.behavioral.visitor.gui;
 
@@ -13,7 +13,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 /**
- *
+ * Посетитель фигур (Visitor) для отрисовки фигур на экране
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
 public class ShapeVisitorGraphics implements ShapeVisitor {
@@ -24,12 +24,16 @@ public class ShapeVisitorGraphics implements ShapeVisitor {
         this.g = g;
     }
 
+    // *************** Private ***********************
+    
     private Color oldColor;
     private Font oldFont;
 
-    private void preDraw() {
+    private void preDraw(Color color, Font font) {
         oldColor = g.getColor();
+        if (color != null) g.setColor(color);
         oldFont = g.getFont();
+        if (font != null) g.setFont(font);
     }
 
     private void postDraw() {
@@ -37,50 +41,46 @@ public class ShapeVisitorGraphics implements ShapeVisitor {
         g.setFont(oldFont);
     }
 
+    // *************** Visitor ***********************
+
     @Override
-    public void visit(Line shape) {
-        preDraw();
-        g.setColor(shape.color);
+    public void visitLine(Line shape) {
+        preDraw(shape.color, null);
         g.drawLine(shape.x, shape.y, shape.x2, shape.y2);
         postDraw();
     }
 
     @Override
-    public void visit(Text shape) {
-        preDraw();
-        g.setColor(shape.color);
+    public void visitText(Text shape) {
+        preDraw(shape.color, shape.font);
         g.drawString(shape.text, shape.x, shape.y);
         postDraw();
     }
 
     @Override
-    public void visit(Rectangle shape) {
-        preDraw();
-        g.setColor(shape.color);
+    public void visitRect(Rectangle shape) {
+        preDraw(shape.color, null);
         g.drawRect(shape.x, shape.y, shape.width, shape.height);
         postDraw();
     }
 
     @Override
-    public void visit(FillRectangle shape) {
-        preDraw();
-        g.setColor(shape.color);
+    public void visitFillRect(FillRectangle shape) {
+        preDraw(shape.color, null);
         g.fillRect(shape.x, shape.y, shape.width, shape.height);
         postDraw();
     }
 
     @Override
-    public void visit(Oval shape) {
-        preDraw();
-        g.setColor(shape.color);
+    public void visitOval(Oval shape) {
+        preDraw(shape.color, null);
         g.drawOval(shape.x - shape.width / 2, shape.y - shape.height / 2, shape.width, shape.height);
         postDraw();
     }
 
     @Override
-    public void visit(FillOval shape) {
-        preDraw();
-        g.setColor(shape.color);
+    public void visitFillOval(FillOval shape) {
+        preDraw(shape.color, null);
         g.fillOval(shape.x - shape.width / 2, shape.y - shape.height / 2, shape.width, shape.height);
         postDraw();
     }

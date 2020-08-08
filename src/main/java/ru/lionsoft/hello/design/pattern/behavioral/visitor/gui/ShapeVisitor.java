@@ -4,25 +4,25 @@
  * Date:    13 дек. 2019 г. 23:55:59
  * Author:  Igor Morenko <morenko at lionsoft.ru>
  * 
- * Copyright 2005-2019 LionSoft LLC. All rights reserved.
+ * Copyright 2005-2020 LionSoft LLC. All rights reserved.
  */
 package ru.lionsoft.hello.design.pattern.behavioral.visitor.gui;
 
 /**
- *
+ * Интерфейс Посетителя фигур (Visitor)
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
 public interface ShapeVisitor {
 
-    void visit(Line shape);
+    void visitLine(Line shape);
 
-    void visit(Text shape);
+    void visitText(Text shape);
 
-    void visit(Rectangle shape);
+    void visitRect(Rectangle shape);
 
-    void visit(FillRectangle shape);
+    void visitFillRect(FillRectangle shape);
 
-    void visit(Oval shape);
+    void visitOval(Oval shape);
 
-    void visit(FillOval shape);
+    void visitFillOval(FillOval shape);
 }

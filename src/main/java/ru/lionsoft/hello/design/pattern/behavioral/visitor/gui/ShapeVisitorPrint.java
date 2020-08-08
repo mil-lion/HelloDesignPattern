@@ -4,14 +4,14 @@
  * Date:    13 дек. 2019 г. 23:56:10
  * Author:  Igor Morenko <morenko at lionsoft.ru>
  * 
- * Copyright 2005-2019 LionSoft LLC. All rights reserved.
+ * Copyright 2005-2020 LionSoft LLC. All rights reserved.
  */
 package ru.lionsoft.hello.design.pattern.behavioral.visitor.gui;
 
 import java.io.PrintStream;
 
 /**
- *
+ * Посетитель фигур (Visitor) для печати фигур на текстовом принтере
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
 public class ShapeVisitorPrint implements ShapeVisitor {
@@ -24,8 +24,10 @@ public class ShapeVisitorPrint implements ShapeVisitor {
         out.println("-------");
     }
 
+    // *************** Visitor ***********************
+
     @Override
-    public void visit(Line shape) {
+    public void visitLine(Line shape) {
         out.println("Line{"
                 + "color=" + shape.color
                 + ", x=" + shape.x
@@ -36,7 +38,7 @@ public class ShapeVisitorPrint implements ShapeVisitor {
     }
 
     @Override
-    public void visit(Text shape) {
+    public void visitText(Text shape) {
         out.println("Text{"
                 + "color=" + shape.color
                 + ", x=" + shape.x
@@ -46,7 +48,7 @@ public class ShapeVisitorPrint implements ShapeVisitor {
     }
 
     @Override
-    public void visit(Rectangle shape) {
+    public void visitRect(Rectangle shape) {
         out.println("Rectangle{"
                 + "color=" + shape.color
                 + ", x=" + shape.x
@@ -57,7 +59,7 @@ public class ShapeVisitorPrint implements ShapeVisitor {
     }
 
     @Override
-    public void visit(FillRectangle shape) {
+    public void visitFillRect(FillRectangle shape) {
         out.println("FillRectangle{"
                 + "color=" + shape.color
                 + ", x=" + shape.x
@@ -68,7 +70,7 @@ public class ShapeVisitorPrint implements ShapeVisitor {
     }
 
     @Override
-    public void visit(Oval shape) {
+    public void visitOval(Oval shape) {
         out.println("Oval{"
                 + "color=" + shape.color
                 + ", x=" + shape.x
@@ -79,7 +81,7 @@ public class ShapeVisitorPrint implements ShapeVisitor {
     }
 
     @Override
-    public void visit(FillOval shape) {
+    public void visitFillOval(FillOval shape) {
         out.println("FillOval{"
                 + "color=" + shape.color
                 + ", x=" + shape.x

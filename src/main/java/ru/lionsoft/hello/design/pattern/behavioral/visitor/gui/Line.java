@@ -4,19 +4,23 @@
  * Date:    13 дек. 2019 г. 23:56:10
  * Author:  Igor Morenko <morenko at lionsoft.ru>
  * 
- * Copyright 2005-2019 LionSoft LLC. All rights reserved.
+ * Copyright 2005-2020 LionSoft LLC. All rights reserved.
  */
 package ru.lionsoft.hello.design.pattern.behavioral.visitor.gui;
 
 import java.awt.Color;
 
 /**
- *
+ * Фигура Линия
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
 public class Line extends AbstractShape {
 
+    // *************** Properties *********************
+    
     public int x2, y2;
+
+    // *************** Constructors *********************
 
     public Line() {
     }
@@ -26,10 +30,12 @@ public class Line extends AbstractShape {
         this.x2 = x2;
         this.y2 = y2;
     }
+     
+    // ******************* Visitor **************************
 
     @Override
-    public void draw(ShapeVisitor visitor) {
-        visitor.visit(this);
+    public void accept(ShapeVisitor visitor) {
+        visitor.visitLine(this);
     }
 
 }
