@@ -1,7 +1,7 @@
 /*
- * File:    User.java
+ * File:    Employee.java
  * Project: HelloDesignPattern
- * Date:    14 дек. 2019 г. 00:18:56
+ * Date:    08 авг. 2020 г. 00:18:56
  * Author:  Igor Morenko <morenko at lionsoft.ru>
  * 
  * Copyright 2005-2020 LionSoft LLC. All rights reserved.
@@ -9,15 +9,18 @@
 package ru.lionsoft.hello.design.pattern.behavioral.mediator;
 
 /**
- * Класс Пользователь
+ * Класс Сотрудник
  * @author Igor Morenko <morenko at lionsoft.ru>
  */
-public class User implements People {
+public class Employee implements People {
     
     private final String name;
+    private final Mediator mediator;
 
-    public User(String name) {
+    public Employee(String name, Mediator mediator) {
         this.name = name;
+        this.mediator = mediator;
+        mediator.register(this);
     }
 
     @Override
@@ -27,7 +30,7 @@ public class User implements People {
     
     @Override
     public void sendMessage(String message) {
-        System.out.println("User " + name + " receive message: " + message);
+        System.out.println("Employee " + name + " receive message: " + message);
     }
     
     /**
@@ -35,7 +38,7 @@ public class User implements People {
      * @param to кому отправить (получатель)
      * @param message сообщение
      */
-    public void sendMessage(People to, String message) {
-        to.sendMessage(message);
+    public void sendMessage(String to, String message) {
+        mediator.sendMessage(this, to, message);
     }
 }
