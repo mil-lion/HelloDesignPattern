@@ -15,7 +15,7 @@
         <maven.compiler.source>13</maven.compiler.source>
         <maven.compiler.target>13</maven.compiler.target>
         <json.version>1.1.4</json.version>
-        <derby.version>10.14.2.0</derby.version>
+        <derby.version>10.17.1.0</derby.version>
         <hibernate.version>5.4.24.Final</hibernate.version>
         <eclipse.version>2.7.7</eclipse.version>
     </properties>
